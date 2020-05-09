@@ -1,0 +1,28 @@
+<template>
+    <div class="slds-p-around_small">
+        <c-fetch-groups ongroupsid={handlegrooup}>
+        </c-fetch-groups> 
+    </div>
+        <div class="slds-p-around_small">       
+     <lightning-layout>  
+        <div class="slds-grid slds-wrap" style="background-color: greenyellow;">      
+         <template for:each={Alluserlist} for:item="usr"> 
+            <div class="slds-col slds-size_1-of-3 slds-p-around_small" key={usr.Id} > 
+                <lightning-layout-item key={usr.Id} padding="around-small" size="12" small-device-size="6"
+                    large-device-size="6" medium-device-size="6">
+                    <lightning-card  title={usr.Name} icon-name=standard:user>
+                     <p class="slds-p-horizontal-small">
+                            &nbsp;&nbsp; {usr.Email} <br/>       
+                        </p>  
+                        <p slot="footer"> 
+                            <lightning-button name={usr.Id} label="View user" variant="brand" onclick={navigateToEditRecordPage}>    
+                            </lightning-button>
+                        </p>
+                 </lightning-card>
+                </lightning-layout-item>
+                </div>
+            </template>
+        </div>
+    </lightning-layout> 
+</div>
+</template>
